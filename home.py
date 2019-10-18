@@ -1,7 +1,7 @@
 from openaq import OpenAQ
 
 
-def sendhomedata():
+def sendpmdata():
     """Getting the Los Angeles data of pm25 levels """
     api = OpenAQ()
     _, body = api.measurements(city='Los Angeles', parameter='pm25')

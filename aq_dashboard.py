@@ -3,7 +3,7 @@ from flask import Flask,render_template,request
 from flask_sqlalchemy import SQLAlchemy
 from latestdata import countrycodata
 from openaq import OpenAQ
-from home import *
+from home import sendpmdata
 
 APP = Flask(__name__)
 
@@ -35,7 +35,7 @@ def refresh():
     """Pull fresh data from Open AQ and replace existing data."""
     DB.drop_all()
     DB.create_all()
-    recorddata = sendlapmdata()
+    recorddata = sendpmdata()
     try:
         for id,record in enumerate(recorddata):
             newrecord = Record(id=id,datetime=record[0],value=record[1])
@@ -59,7 +59,7 @@ def riskycities():
 @APP.route('/live')
 def root():
     """Base view."""
-    body = sendlapmdata()
+    body = sendpmdata()
     return render_template('base.html', messages=body)
 
 @APP.route('/country/<countryname>')
