@@ -2,8 +2,9 @@ from openaq import OpenAQ
 
 
 def sendhomedata():
+    """Getting the Los Angeles data of pm25 levels """
     api = OpenAQ()
-    status, body = api.measurements(city='Los Angeles', parameter='pm25')
+    _, body = api.measurements(city='Los Angeles', parameter='pm25')
     #getting utcdate time and pmi value from body results
     sendresults = []
     for result in body['results']:

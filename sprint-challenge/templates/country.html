@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <head>
+    <title> Cities PMI Data </title>
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <h1>Carbon Monooxide Data by Country and City </h1>
+    </div>
+        {% block content %}
+        <div class="container">
+        <table class="table" style="width:100%">
+            <thead class="thead-dark">
+            <tr>
+              <th scope="col">Country</th>
+              <th scope="col">City</th>
+              <th scope="col">Carbon Monooxide Level</th>
+              
+            </tr>
+            </thead>
+        {% for message in messages %}
+        <tr>
+           
+          <td>{{ message[0] }} </td>
+          <td>{{ message[1] }} </td>
+          <td>{{ message[2] }} </td>
+          
+        </tr>
+        
+        {% endfor %}
+        {% endblock %}
+      </div>
+   </body>
+</html>
