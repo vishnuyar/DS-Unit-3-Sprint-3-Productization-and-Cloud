@@ -2,15 +2,35 @@
 <html>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <head>
-    <title> Twitter Jeopardy </title>
+    <title> Cities PMI Data </title>
   </head>
 
   <body>
+    <div class="jumbotron">
+      <h1>Los Angeles PMI Data </h1>
+    </div>
         {% block content %}
+        <div class="container">
+        <table class="table" style="width:100%">
+            <thead class="thead-dark">
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Date</th>
+              <th scope="col">PMI Value(>=10)</th>
+              
+            </tr>
+            </thead>
         {% for message in messages %}
-        <p>{{ message }}</p>
+        <tr>
+           
+          <td>{{ message[0] }} </td>
+          <td>{{ message[1] }} </td>
+          <td>{{ message[2] }} </td>
+          
+        </tr>
+        
         {% endfor %}
         {% endblock %}
-
+      </div>
    </body>
 </html>

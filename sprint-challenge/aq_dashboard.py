@@ -35,15 +35,15 @@ def refresh():
         message = 'Data refreshed!'
     except Exception as e:
         message = "Error creating records {}".format(e)
-    return render_template('base.html', messages=message)
+    return render_template('refresh.html', message=message)
 
 @APP.route('/')
 def riskycities():
     """Getting potentially risky data."""
     riskydata  = Record.query.filter(Record.value>=10).all()
     riskycities = []
-    for data in riskydata:
-        dateandvalue = (data.datetime,str(data.value))
+    for i,data in enumerate(riskydata):
+        dateandvalue = (i,data.datetime,str(data.value))
         riskycities.append(dateandvalue)
     return render_template('base.html', messages=riskycities)
 
